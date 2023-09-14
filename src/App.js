@@ -11,6 +11,11 @@
 */
 
 import React from 'react';
+import { useState } from 'react';
+import dummyData from './dummy-data';
+import SearchBar from './components/SearchBar/SearchBar';
+ import Posts from './components/Posts/Posts';
+
 // Import the Posts (plural!) and SearchBar components, since they are used inside App component
 // Soo jiido Posts iyo SearchBar components-ka
 
@@ -22,6 +27,8 @@ import React from 'react';
 import './App.css';
 
 const App = () => {
+  const [posts , setposts] = useState(dummyData)
+  console.log(posts)
   // Create a state called `posts` to hold the array of post objects, **initializing to dummyData**.
   // Waxaa sameysaa state la dhaho 'posts' si aad ugu keydisid wixii dummyData ka imaanaayo.
 
@@ -30,6 +37,9 @@ const App = () => {
 
   return (
     <div className='App'>
+      <SearchBar posts={posts}/>
+      <Posts posts ={posts}/>
+   
       {/* Add SearchBar and Posts here to render them */}
       {/* Soo jiido SearchBar iyo Posts components-ka hoos, si aad u muujiyo */}
 
